@@ -2,7 +2,7 @@
 test task with Spring-boot REST API, PostgreSQL, ReactJS frontend and Docker-compose
 -----
 
-### How to use project: ###
+### How to install project: ###
 #### 1. Take a project to your PC by ####
 > $ git clone --recursive https://github.com/polukeyev/CustServ
 
