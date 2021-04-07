@@ -27,11 +27,11 @@ services:
   react-service:
     container_name: react-container
     build:
-      context: ./frontend-react/cust-serv
+      context: ./cust-serv
       dockerfile: Dockerfile
     volumes:
-      - .:/frontend-react/cust-serv/app
-      - /frontend-react/cust-serv/app/node_modules
+      - .:/cust-serv/app
+      - /cust-serv/app/node_modules
     ports:
       - 3000:3000
     environment:
