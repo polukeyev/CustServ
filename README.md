@@ -15,7 +15,7 @@ test task with Spring-boot REST API, PostgreSQL, ReactJS frontend and Docker-com
 or
 > $ ./mvnw clean package -DskipTests
 
-#### 4. Start web-app with ####
+#### 4. Deploy web-app on your PC with ####
 > $ docker-compose up --build
 
 #### 5. Check it in your browser by ####
