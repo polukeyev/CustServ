@@ -9,14 +9,8 @@ test task with Spring-boot REST API, PostgreSQL, ReactJS frontend and Docker-com
 #### 2. Then enter into project dir (CustServ) ####
 > $ cd CustServ
 
-#### 3. Build .jar file by ####
-> $ ./mvnw clean package
-
-or
-> $ ./mvnw clean package -DskipTests
-
-#### 4. Deploy web-app on your PC with ####
+#### 3. Deploy web-app on your PC with ####
 > $ docker-compose up --build
 
-#### 5. Check it in your browser by ####
+#### 4. Check it in your browser by ####
 > http://localhost:3000/
