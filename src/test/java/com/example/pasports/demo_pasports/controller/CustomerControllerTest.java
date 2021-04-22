@@ -2,9 +2,7 @@ package com.example.pasports.demo_pasports.controller;
 
 import com.example.pasports.demo_pasports.model.Address;
 import com.example.pasports.demo_pasports.model.Customer;
-import com.example.pasports.demo_pasports.repository.AddressRepo;
-import com.example.pasports.demo_pasports.repository.CustomerRepo;
-import com.example.pasports.demo_pasports.repository.CustomerSearch;
+import com.example.pasports.demo_pasports.service.CustomerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,11 +28,7 @@ class CustomerControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private CustomerRepo customerRepo;
-    @MockBean
-    private AddressRepo addressRepo;
-    @MockBean
-    private CustomerSearch customerSearch;
+    private CustomerService customerService;
 
     private Customer customer1;
     private Customer customer2;
@@ -69,9 +63,9 @@ class CustomerControllerTest {
     }
 
     @Test
-    void showAllCustomers() throws Exception {
+    void getAllCustomers() throws Exception {
 
-        when(customerRepo.findAll()).thenReturn(Arrays.asList(customer1, customer2));
+        when(customerService.getAllCustomers()).thenReturn(Arrays.asList(customer1, customer2));
 
         mockMvc.perform(get("/customers"))
                 .andExpect(status().isOk())
@@ -83,7 +77,7 @@ class CustomerControllerTest {
     @Test
     void searchByNameAndLastName() throws Exception {
 
-        when(customerSearch.search("Petr Petrov")).thenReturn(Collections.singletonList(customer2));
+        when(customerService.searchByNameAndLastName("Petr Petrov")).thenReturn(Collections.singletonList(customer2));
 
         mockMvc.perform(get("/customers/search?name=Petr Petrov"))
                 .andExpect(status().isOk())
@@ -94,7 +88,7 @@ class CustomerControllerTest {
     @Test
     void addNewCustomer() throws Exception {
 
-        when(customerRepo.save(customer1)).thenReturn(customer1);
+        when(customerService.addNewCustomer(customer1)).thenReturn(customer1);
 
         String json = new ObjectMapper().writeValueAsString(customer1);
 
