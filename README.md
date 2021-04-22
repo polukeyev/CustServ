@@ -12,7 +12,7 @@ test task with Spring-boot REST API, PostgreSQL, ReactJS frontend and Docker-com
 #### 3. Build .jar file by ####
 > $ ./mvnw clean package
 
-#### 4. Deploy web-app on your PC with ####
+#### 4. Deploy web-app on your PC with (Docker engine should be already started) ####
 > $ docker-compose up --build
 
 #### 5. Check it in your browser by ####
